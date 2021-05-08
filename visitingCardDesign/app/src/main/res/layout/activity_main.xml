@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#A9A0B8"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/txtCompanyName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingLeft="15dp"
+            android:paddingTop="15dp"
+            android:paddingRight="15dp"
+            android:paddingBottom="15dp"
+            android:text="COMPANY NAME"
+            android:textAlignment="center"
+            android:textColor="#aa00aa"
+            android:textSize="40dp"
+            android:textStyle="bold"
+            />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/txtCompanyName"
+            app:srcCompat="@drawable/logo" />
+
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/view_ThickLine"
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:background="#62386E" />
+
+    <TextView
+        android:id="@+id/textView_Name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+
+        android:gravity="center"
+        android:paddingLeft=" 15dp"
+        android:paddingTop=" 20dp"
+        android:paddingRight="  15dp"
+        android:paddingBottom=" 20dp"
+        android:text="Name"
+        android:textAlignment="center"
+        android:textColor="#4C2150"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView_JobTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+
+        android:gravity="center"
+        android:paddingLeft=" 15dp"
+        android:paddingTop=" 20dp"
+        android:paddingRight=" 15dp"
+        android:paddingBottom=" 20dp"
+        android:text="Job Title"
+        android:textAlignment="center"
+        android:textColor="#4C2150"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView_phno"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+
+        android:gravity="center"
+        android:paddingLeft=" 15dp"
+        android:paddingTop=" 20dp"
+        android:paddingRight=" 15dp"
+        android:paddingBottom=" 20dp"
+        android:text="Phone Number"
+        android:textAlignment="center"
+        android:textColor="#4C2150"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView_Address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:paddingLeft=" 15dp"
+        android:paddingTop=" 20dp"
+        android:paddingRight=" 15dp"
+        android:paddingBottom=" 20dp"
+        android:text="Address"
+        android:textAlignment="center"
+        android:textColor="#4C2150"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView_Contact"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:paddingLeft=" 15dp"
+        android:paddingTop="  20dp"
+        android:paddingRight=" 15dp"
+        android:paddingBottom="  20dp"
+        android:text="Email, Website, Fax details"
+        android:textAlignment="center"
+        android:textColor="#4C2150"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+</LinearLayout>

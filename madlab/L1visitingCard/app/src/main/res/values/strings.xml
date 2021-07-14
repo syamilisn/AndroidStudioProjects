@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">L1visitingCard</string>
+    <string name="card_title">RIOT GAMES</string>
+    <string name= "card_name">Valorant</string>
+    <string name="card_job_title">Game Developer</string>
+    <string name="card_phone">Contact us: +1 1234567890</string>
+    <string name="card_contact">Email: valorant@riotgames.co, Website: playvalorant.com, Fax: +1 9876543210</string>
+    <string name="card_address">Washington DC</string>
+</resources>

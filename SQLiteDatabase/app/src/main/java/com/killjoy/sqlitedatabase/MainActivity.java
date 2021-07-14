@@ -24,6 +24,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void doLoad(View view) {
-        myData.getAll();
+        myData.getMeaning();
     }
 }

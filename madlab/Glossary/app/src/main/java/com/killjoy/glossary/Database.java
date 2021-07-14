@@ -1,4 +1,4 @@
-package com.killjoy.sqlitedatabase;
+package com.killjoy.glossary;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -7,22 +7,22 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 import android.widget.Toast;
 
-public class MyCoreDatabase extends SQLiteOpenHelper {
+public class Database extends SQLiteOpenHelper {
 
-    static final  private String DB_NAME = "Education";
-    static final private String DB_TABLE = "Students";
-    static final  private int DB_VER = 1;
+    static final private String DB_NAME = "turret";
+    static final private String DB_TABLE = "gloss";
+    static final private int DB_VER = 1;
 
     Context ctx;
     SQLiteDatabase myDb;
 
-    public MyCoreDatabase(Context ct){
-        super(ct, DB_NAME,null, DB_VER);
+    public Database(Context ct){
+        super(ct,DB_NAME,null,DB_VER);
         ctx=ct;
     }
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("create table "+DB_TABLE+" (_id integer primary key autoincrement, stu_name text, clg_name text);");
+        db.execSQL("create table "+DB_TABLE+" (_id integer primary key autoincrement, word text, meaning text);");
         Log.i("Database", "Table created");
     }
 
@@ -34,14 +34,17 @@ public class MyCoreDatabase extends SQLiteOpenHelper {
 
     public void insertData(String s1, String s2){
         myDb =  getWritableDatabase();
-        myDb.execSQL("insert into "+DB_TABLE+" (stu_name, clg_name) values('"+s1+"','"+s2+"');");
-        Toast.makeText(ctx,"Data saved successfully", Toast.LENGTH_SHORT).show();
+        myDb.execSQL("insert into "+DB_TABLE+" (word, meaning) values('"+s1+"','"+s2+"');");
+        //Toast.makeText(ctx,"Word added successfully", Toast.LENGTH_SHORT).show();
 
     }
-
+    //getting data:
     public void getAll(){
+        //params: int i, int value
         myDb=getReadableDatabase();
         //myDb.rawQuery("Select * from "+DB_NAME +" where _id= ?",value);
+        //or
+        //myDb.rawQuery("Select * from "+DB_NAME +" where _id= "+value+"",null);
         Cursor cr = myDb.rawQuery("Select * from "+DB_TABLE,null);
         StringBuilder str = new StringBuilder();
 
@@ -52,20 +55,37 @@ public class MyCoreDatabase extends SQLiteOpenHelper {
         }
         Toast.makeText(ctx,str.toString(), Toast.LENGTH_LONG).show();
     }
-    public void getMeaning(){
+    /*
+    public String getMeaning(String s1){
+        myDb = getReadableDatabase();
+        Cursor cr = myDb.rawQuery("Select meaning from "+DB_TABLE+" where name="+s1+"", null);
+        return cr.getString(2);
+    }
+    */
+    public String getMeaning(String s1){
         myDb = getReadableDatabase();
         //Cursor cr = myDb.rawQuery("SELECT word, meaning FROM "+DB_TABLE+" WHERE word = ? AND id = ?", new String[] {"apple", "2"});
-        //Cursor cr = myDb.rawQuery("SELECT clg_name FROM "+DB_TABLE+" WHERE stu_name = ? ", new String[] {"arya"});
-        Cursor cr = myDb.rawQuery("SELECT * FROM "+DB_TABLE,null);
+        //Cursor cr = myDb.rawQuery("SELECT meaning FROM "+DB_TABLE+" WHERE word = ? ", new String[] {s1});
+        Cursor cr = myDb.rawQuery("SELECT * FROM "+DB_TABLE+" WHERE word = ? ", new String[] {s1});
         StringBuilder str = new StringBuilder();
-        String s0 , s2 ;
+        //String s0 , s2 ;
+        String wordMeaning;
+        while(cr.moveToNext()){
+             wordMeaning = cr.getString(2);
+            str.append(""+wordMeaning+"\n");
+        }
+        /*
         while (cr.moveToNext()){
             s0 = cr.getString(1);
             s2 = cr.getString(2);
             str.append(s0+"          "+s2+"\n");
         }
-        Toast.makeText(ctx,str.toString(), Toast.LENGTH_LONG).show();
-        //return String.valueOf(str);
+
+         */
+        //Toast.makeText(ctx,str.toString(), Toast.LENGTH_LONG).show();
+        return String.valueOf(str);
 
     }
+
+
 }

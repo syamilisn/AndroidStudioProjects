@@ -96,6 +96,7 @@
             android:layout_height="wrap_content"
             android:backgroundTint="@color/green"
             android:text="SEARCH"
+            android:onClick="doLoad"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             />
@@ -124,7 +125,7 @@
                     android:id="@+id/txt1"
                     android:layout_width="match_parent"
                     android:layout_height="500dp"
-                    android:hint="@string/loreum"
+                    android:hint="Word meaning is here."
                     android:textSize="18dp"
                     android:padding="10dp"
                     android:textColor="@color/black1"

@@ -19,17 +19,17 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
     TextView text1;
     Button bn1;
     String aMeaning;
-    String regularExpression = "^[A-Za-z]{3,20}$";
-    //String[] planets;
+    String regularExpression = "[A-Za-z]+";
+    Database myData;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //Resources res = getResources();
         setContentView(R.layout.activity_search);
         edit1=(EditText)findViewById(R.id.ed1);
         text1=(TextView)findViewById(R.id.txt1);
         bn1=(Button)findViewById(R.id.b1);
         bn1.setOnClickListener(this);
+        myData = new Database(this);
     }
 
     @Override
@@ -39,19 +39,20 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
 
 
         if(validWord(searchWord)) {
-            aMeaning = searchFunc(searchWord);
-            text1.setText(searchWord);
+            aMeaning = doLoad(v,searchWord);
+            text1.setText(aMeaning);
         }
         else
             Toast.makeText(getBaseContext(), "Invalid Word", Toast.LENGTH_LONG).show();
 
     }
-    public boolean validWord(String password)
+    public boolean validWord(String correctWord)
     {
         Pattern pattern= Pattern.compile(regularExpression);
-        Matcher matcher=pattern.matcher(password);
+        Matcher matcher=pattern.matcher(correctWord);
         return matcher.matches();
     }
+
     public String searchFunc(String searchWord){
         /*
         String arr[] = getResources().getStringArray(R.array.planet);
@@ -59,7 +60,16 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
             Toast.makeText(getBaseContext(),arr[i], Toast.LENGTH_LONG).show();
         }
         */
-        return searchWord;
+        String meaning = myData.getMeaning(searchWord);
+        return meaning;
     }
+    /*
+    public void doLoad(View view) {
+        myData.getAll();
+        */
 
+    public String doLoad(View view, String searchWord){
+        String meaning = myData.getMeaning(searchWord);
+        return meaning;
+    }
 }

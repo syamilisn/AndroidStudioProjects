@@ -15,8 +15,9 @@ public class AddActivity extends AppCompatActivity implements View.OnClickListen
 
     EditText edit1,edit2;
     Button bn1;
-    String aMeaning;
-    String regularExpression = "^[A-Za-z]{3,20}$";
+    String aMeaning,addWord;
+    String regularExpression = "[A-Za-z]+";
+    Database myData;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,17 +26,19 @@ public class AddActivity extends AppCompatActivity implements View.OnClickListen
         edit2 = (EditText)findViewById(R.id.ed2);
         bn1 = (Button)findViewById(R.id.b1);
         bn1.setOnClickListener(this);
+        myData = new Database(this);
+
     }
 
     @Override
     public void onClick(View v) {
-        String addWord;
         addWord = edit1.getText().toString();
 
 
         if(validWord(addWord)) {
             aMeaning = edit2.getText().toString();
             //add addWord, aMeaning to dictionary
+            doSave(v,addWord,aMeaning);
             Toast.makeText(getBaseContext(), "Word Added", Toast.LENGTH_LONG).show();
         }
         else
@@ -50,4 +53,7 @@ public class AddActivity extends AppCompatActivity implements View.OnClickListen
     }
 
 
+    public void doSave(View view, String s1, String s2) {
+        myData.insertData(s1,s2);
+    }
 }

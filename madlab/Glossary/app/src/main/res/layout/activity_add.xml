@@ -96,6 +96,7 @@
             android:layout_height="wrap_content"
             android:backgroundTint="@color/green"
             android:text="ADD"
+            android:onClick="doSave"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             />

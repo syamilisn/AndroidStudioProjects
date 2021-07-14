@@ -124,6 +124,7 @@
             android:layout_height="wrap_content"
             android:backgroundTint="@color/green"
             android:text="SEARCH"
+            android:onClick="doSearch"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             />
@@ -133,6 +134,7 @@
             android:layout_height="wrap_content"
             android:backgroundTint="@color/green"
             android:text="ADD"
+            android:onClick="doAdd"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             />

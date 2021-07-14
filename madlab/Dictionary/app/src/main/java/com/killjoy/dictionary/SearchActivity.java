@@ -3,10 +3,11 @@ package com.killjoy.dictionary;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class SearchActivity extends AppCompatActivity {
+public class SearchActivity extends AppCompatActivity implements View.OnClickListener {
 
     EditText edit1;
     Button bn1;
@@ -17,5 +18,13 @@ public class SearchActivity extends AppCompatActivity {
         setContentView(R.layout.activity_search);
         edit1=(EditText)findViewById(R.id.ed1);
         bn1=(Button)findViewById(R.id.b1);
+        bn1.setOnClickListener(this);
+        Bundle bundle=getIntent().getBundleExtra("word");
+        searchWord=bundle.getString("word");
+    }
+
+    @Override
+    public void onClick(View v) {
+
     }
 }

@@ -34,10 +34,24 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
         if(validWord(word)) {
             Bundle bundle = new Bundle();
             bundle.putString("word", word);
+            /*
             if(v.getId()==R.id.b1)
-                doSearch(v);
+                doSearch(v,bundle);
             else if(v.getId()==R.id.b2)
-                doAdd(v);
+                doAdd(v,bundle);
+            */
+            Intent it;
+            if(v.getId()==R.id.b1) {
+                it = new Intent(this, SearchActivity.class);
+                it.putExtra("data", bundle);
+                startActivity(it);
+            }
+            else if(v.getId()==R.id.b2) {
+                it = new Intent(this, AddActivity.class);
+                it.putExtra("data", bundle);
+                startActivity(it);
+            }
+
             //Intent it = new Intent(this, SearchActivity.class);
             //it.putExtra("data", bundle);
             //startActivity(it);
@@ -51,13 +65,17 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
         Matcher matcher=pattern.matcher(password);
         return matcher.matches();
     }
-    public void doSearch(View view){
+    public void doSearch(View view, Bundle bundle){
+        /*
         Intent it = new Intent(this, SearchActivity.class);
-        startActivity(it);
+        it.putExtra("data", bundle);
+        startActivity(it);*/
     }
-    public void doAdd(View view){
+    public void doAdd(View view, Bundle bundle){
+        /*
         Intent it = new Intent(this, AddActivity.class);
+        it.putExtra("data", bundle);
         startActivity(it);
-
+        */
     }
 }

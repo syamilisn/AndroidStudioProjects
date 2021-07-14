@@ -1,7 +1,8 @@
-package com.killjoy.dictionary;
+package com.killjoy.glossary;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,37 +16,28 @@ import java.util.regex.Pattern;
 public class SearchActivity extends AppCompatActivity implements View.OnClickListener {
 
     EditText edit1;
-    TextView text1,dummytext;
+    TextView text1;
     Button bn1;
-    String aWord,aMeaning;
+    String aMeaning;
     String regularExpression = "^[A-Za-z]{3,20}$";
+    //String[] planets;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //Resources res = getResources();
         setContentView(R.layout.activity_search);
         edit1=(EditText)findViewById(R.id.ed1);
         text1=(TextView)findViewById(R.id.txt1);
-        dummytext=(TextView)findViewById(R.id.dummy);
         bn1=(Button)findViewById(R.id.b1);
         bn1.setOnClickListener(this);
-        Bundle bundle=getIntent().getBundleExtra("data");
-        aWord=bundle.getString("word");
-        dummytext.setText(aWord);
-        //dummytext.setVisibility(View.GONE);
-        //edit1.setVisibility(View.VISIBLE);
-        //editText.setText(edititemname);
     }
 
     @Override
     public void onClick(View v) {
         String searchWord;
+        searchWord = edit1.getText().toString();
 
-            if (aWord.isEmpty())
-                searchWord = edit1.getText().toString();
-            else {
-                searchWord = aWord;
-                aWord = "";
-            }
+
         if(validWord(searchWord)) {
             aMeaning = searchFunc(searchWord);
             text1.setText(searchWord);
@@ -61,6 +53,12 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
         return matcher.matches();
     }
     public String searchFunc(String searchWord){
+        /*
+        String arr[] = getResources().getStringArray(R.array.planet);
+        for (int i = 0; i < arr.length; i++) {
+            Toast.makeText(getBaseContext(),arr[i], Toast.LENGTH_LONG).show();
+        }
+        */
         return searchWord;
     }
 

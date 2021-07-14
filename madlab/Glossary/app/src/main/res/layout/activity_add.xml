@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SearchActivity"
+    tools:context=".AddActivity"
     android:background="@drawable/kjwall"
     >
     <LinearLayout
@@ -80,27 +80,22 @@
         >
 
         <EditText
-            android:id="@+id/ed2"
+            android:id="@+id/ed1"
             android:layout_width="250dp"
             android:layout_height="35dp"
-            android:hint="  Type word here"
+            android:hint="  Type new word here"
+            android:inputType="textCapCharacters"
             android:background="@color/white1"
             android:layout_marginEnd="10dp"
             android:textSize="20sp"
             android:paddingBottom="5dp"
             />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/dummy"
-            android:text="@string/app_name"/>
-
         <Button
             android:id="@+id/b1"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/green"
-            android:text="SEARCH"
+            android:text="ADD"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             />
@@ -117,7 +112,7 @@
         <ScrollView
             android:id="@+id/sc1"
             android:layout_width="match_parent"
-            android:layout_height="500dp"
+            android:layout_height="match_parent"
             app:layout_constraintTop_toBottomOf="@id/row1"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -125,13 +120,14 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
-                <TextView
-                    android:id="@+id/txt1"
+                <EditText
+                    android:id="@+id/ed2"
                     android:layout_width="match_parent"
                     android:layout_height="500dp"
-                    android:hint="@string/loreum"
+                    android:hint="Enter meaning for the new word here"
                     android:textSize="18dp"
                     android:padding="10dp"
+                    android:gravity="top"
                     android:textColor="@color/black1"
                     android:background="@color/white1"/>
             </LinearLayout>
